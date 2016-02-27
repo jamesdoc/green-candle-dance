@@ -1,0 +1,104 @@
+
+---------------------------------------------------------------------------
+
+Gaia - changelog.txt
+
+---------------------------------------------------------------------------
+
+
+Version 1.8 - 01 Feb 2012
+
+- Added social icons: Google+, Google+ Black, Dribbble, GitHub
+- Fixed link bug - widget-custom-content.php
+- Updated Documentation (missing some shortcode usage)
+- timthumb.php + cache folder removed - modified: slider.php, loader.php, widget-custom-content.php, widget-blog-posts.php
+- jquery.nivo.slider.pack.js - file updated
+- Solved jetpack plugin compatibility issue - header.php, footer.php, style.css, custom.js, functions.php
+- jquery.easing.1.3.js + jquery.easing.compatibility.js removed because of jQuery conflict
+
+
+----
+
+
+Version 1.7 - 25 Nov 2011
+
+- Added social icons: Google+, Google+ Black, Dribbble, GitHub
+- Fixed link bug - widget-custom-content.php
+- Updated timthumb.php file
+- Updated Documentation (missing some shortcode usage)
+
+
+----
+
+
+Version 1.6 - 14 Oct 2011
+
+- fixed bug related portfolio posts - inc/related-portfolio-posts.php, single-portfolio.php
+- added shortcodes - functions.php, style.css, js/custom.js
+- improved Option Panel - admin/theme-options.php
+- fixed minor bugs - style.css
+- added new class home button - style.css / header.php
+- added new js file: jquery.easing.1.3.js, jquery.easing.compatibility.js
+- added slider caption - inc/slider.php, style.css, admin/slidermanager/loader.php
+
+
+----
+
+
+Version 1.5 - 21 Sep 2011
+
+- style.css, footer.php / fixed slider bug
+- updated jquery.nivo.slider.pack
+- inc/social-icons.php / fixed bug icons: youtube, deviantart, posterous
+- jQuery library updated
+
+
+-----
+
+
+Version 1.4 - 28 Aug 2011
+
+- Added Theme Update Notifier (https://github.com/unisphere/unisphere_notifier)
+- style.css / fixed twitter widget button position hover
+- style.css / fixed tpl-portfolio.php layout sidebar right
+
+
+-----
+
+
+Version 1.3 - 25 Aug 2011
+
+- style.css / fixed footer text (right) margins
+- footer.php / fixed social icons and gplus position
+
+
+-----
+
+
+Version 1.2 - 22 Aug 2011
+
+- style.css / fixed WP background color bug
+- function.php / added mav_custom_background_callback();
+- style.php / improved style for about author loop-single.php blog page
+- ie7.css, ie8.css, ie9.css / updated
+- function.php / added Shortcodes (see the documentation for usage)
+- Documentation.pdf file updated for shortcodes
+
+
+-----
+
+
+Version 1.1 - 12 Aug 2011
+
+- tpl-contact.php / fixed php bug
+- SOLVED IMPORTANT COMPATIBILITY ISSUE IE7/8/9
+
+
+-----
+
+
+Version 1.0 - 11 Aug 2011
+
+- First Release
+
+

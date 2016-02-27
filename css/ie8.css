@@ -1,0 +1,46 @@
+/*body {background: #fc0;}*/
+
+#slider {
+/*	border: 1px solid #e5eaef;*/
+	border-bottom: 7px solid #CC3;
+}
+
+#footer-widget-area #first {
+/*	border: 1px solid #e5eaef;*/
+	padding-top: 15px;
+}
+
+#footer-widget-area #second {
+/*	border: 1px solid #e5eaef;*/
+	padding-top: 15px;
+}
+
+#footer-widget-area #third {
+	margin-right: 0;
+	padding-top: 17px;
+	padding-left: 40px;
+	padding-right: 0;
+/*	width: 200px;*/
+}
+
+#access ul ul { border: 1px solid #e5eaef; }
+
+#content table { border: 1px solid #e5eaef; }
+
+td { width: 300px; }
+
+#content tr th,
+#content thead th {
+	text-align: left;
+}
+
+.vimeo-player,
+.youtube-player { border: 1px solid #e5eaef; }
+
+.widget-container.posts img { border: 1px solid #e5eaef; }
+
+#homepage-widget-area img { border: 1px solid #e5eaef; }
+
+.searchform-header input { line-height: 21px; }
+
+#entry-author-info { border: 1px solid #e5eaef; }
