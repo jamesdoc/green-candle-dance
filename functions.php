@@ -4,7 +4,7 @@
 	FUNCTIONS AND DEFINITIONS
 
 	----------------------------------------------------------------------------------- */
- 
+
 
 /*
 	Set the content width based on the theme's design and stylesheet.
@@ -59,10 +59,10 @@
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => ''
 		);
-		
+
 		add_theme_support( 'custom-background', $args );
 
-	
+
 	}
 	endif;
 ?>
@@ -71,7 +71,7 @@
 /*
 	Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
 	----------------------------------------------------------------------------------- */
-	
+
 	function mav_page_menu_args( $args ) {
 		$args['show_home'] = true;
 		return $args;
@@ -196,7 +196,7 @@
 	Register widgetized areas
 	----------------------------------------------------------------------------------- */
 	function mav_widgets_init() {
-	
+
 		// Area 1a, located at the top of the sidebar.
 		register_sidebar( array(
 			'name' => __( 'Sidebar Primary', 'mav' ),
@@ -288,7 +288,7 @@
 
 		// Area 8, located in the footer. Empty by default.
 		// 2015-04-25 | James Doc: GCD only wanted shop & video in this area. Commented this out to prevent cluttering and confusing widget space
-		/* 
+		/*
 			register_sidebar( array(
 			'name' => __( 'Footer Third', 'mav' ),
 			'id' => 'third-footer-widget-area',
@@ -426,7 +426,7 @@ function mav_include_styles() {
 	wp_enqueue_style( 'plugins' );
 	wp_enqueue_style( 'alternate' );
 
-}  
+}
 
 add_action( 'wp_print_styles', 'mav_include_styles' );
 
@@ -515,17 +515,17 @@ add_action( 'wp_print_styles', 'mav_include_styles' );
 /*
 	`PORTFOLIO
 	----------------------------------------------------------------------------------- */
-	
+
 	/**
 	 * Flushes rewrite rules on plugin activation to ensure portfolio posts don't 404
 	 * http://codex.wordpress.org/Function_Reference/flush_rewrite_rules
 	 */
-	
+
 	function portfolioposttype_activation() {
 		create_portfolio();
 		flush_rewrite_rules();
 	}
-	
+
 	register_activation_hook( __FILE__, 'portfolioposttype_activation' );
 
 
@@ -548,13 +548,13 @@ add_action( 'wp_print_styles', 'mav_include_styles' );
 			'parent_item_colon' => '',
 			'all_items' => __( 'All Portfolio Posts', 'portfolio', '' )
 		);
-			
+
 		$portfolio_args = array(
 			'labels' => $labels,
 			'public' => true,
 			'exclude_from_search' => false,
 			'publicly_queryable' => true,
-			'show_ui' => true, 
+			'show_ui' => true,
 			'query_var' => true,
 			'capability_type' => 'post',
 			'hierarchical' => false,
@@ -562,7 +562,7 @@ add_action( 'wp_print_styles', 'mav_include_styles' );
 			'rewrite' => array( "slug" => "portfolio-item", 'with_front' => false ), // Permalinks format
 			'supports' => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions' )
 		);
-			
+
 		register_post_type( 'portfolio' , $portfolio_args );
 	}
 
@@ -599,7 +599,7 @@ add_action( 'wp_print_styles', 'mav_include_styles' );
 		{
 			add_meta_box( 'my-meta-box-id', 'Portfolio Options', 'cd_meta_box_cb', 'portfolio', 'normal', 'high' );
 		}
-	
+
 	// Rendering the Meta Box
 	function cd_meta_box_cb( $post )
 	{
@@ -613,7 +613,7 @@ add_action( 'wp_print_styles', 'mav_include_styles' );
 			<label>Please, enter a short description, the text otherwise will be cropped.</label><br/>
 			<input style="width:60%;margin:9px 0 15px 0" type="text" name="portfolio_desc" id="portfolio_desc" value="<?php echo $portfolio_desc; ?>" />
 		</p>
-		
+
 		<p style="margin-bottom:25px">
 			<label for="lightbox_path"><strong>URL Link for Lightbox</strong></label><br/>
 			<label>It can be image or video, it will be opened in the portfolio page.</label>
@@ -626,29 +626,29 @@ add_action( 'wp_print_styles', 'mav_include_styles' );
 			<br/>
 		</p>
 
-		<?php	
+		<?php
 	}
-	
+
 	// Saving the Data
 	add_action( 'save_post', 'cd_meta_box_save' );
 	function cd_meta_box_save( $post_id )
 	{
 		// Bail if we're doing an auto save
 		if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-	
+
 		// if our nonce isn't there, or we can't verify it, bail
 		if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
-	
+
 		// if our current user can't edit this post, bail
 		if( !current_user_can( 'edit_post' ) ) return;
-	
+
 		// now we can actually save the data
-		$allowed = array( 
+		$allowed = array(
 			'a' => array( // on allow a tags
 				'href' => array() // and those anchords can only have href attribute
 			)
 		);
-	
+
 		// Probably a good idea to make sure your data is set
 		if( isset( $_POST['portfolio_desc'] ) )
 			update_post_meta( $post_id, 'portfolio_desc', wp_kses( $_POST['portfolio_desc'], $allowed ) );
@@ -728,15 +728,15 @@ add_filter( 'manage_edit-portfolio_columns', 'portfolioposttype_edit_columns' );
 function portfolioposttype_columns_display($portfolio_columns, $post_id){
 
 	switch ( $portfolio_columns )
-	
+
 	{
 		// Code from: http://wpengineer.com/display-post-thumbnail-post-page-overview
-		
+
 		case "thumbnail":
 			$width = (int) 50;
 			$height = (int) 50;
 			$thumbnail_id = get_post_meta( $post_id, '_thumbnail_id', true );
-			
+
 			// Display the featured image in the column view if possible
 			if ($thumbnail_id) {
 				$thumb = wp_get_attachment_image( $thumbnail_id, array($width, $height), true );
@@ -746,27 +746,27 @@ function portfolioposttype_columns_display($portfolio_columns, $post_id){
 			} else {
 				echo __('None', 'portfolioposttype');
 			}
-			break;	
-			
+			break;
+
 			// Display the portfolio tags in the column view
 			case "portfolio_category":
-			
+
 			if ( $category_list = get_the_term_list( $post_id, 'portfolio_category', '', ', ', '' ) ) {
 				echo $category_list;
 			} else {
 				echo __('None', 'portfolioposttype');
 			}
-			break;	
-			
+			break;
+
 			// Display the portfolio tags in the column view
 			case "portfolio_tag":
-			
+
 			if ( $tag_list = get_the_term_list( $post_id, 'portfolio_tag', '', ', ', '' ) ) {
 				echo $tag_list;
 			} else {
 				echo __('None', 'portfolioposttype');
 			}
-			break;			
+			break;
 	}
 }
 
@@ -774,13 +774,13 @@ add_action( 'manage_posts_custom_column',  'portfolioposttype_columns_display', 
 
 
 
-	
+
 /*
 	SHORTCODES
 	----------------------------------------------------------------------------------- */
-	
+
 	add_filter('widget_text', 'do_shortcode');
-	
+
 	/* THE YEAR */
 	function the_year() {
 		$the_year = date('Y');
@@ -810,7 +810,7 @@ add_action( 'manage_posts_custom_column',  'portfolioposttype_columns_display', 
 
 		return '<a href="' . $link . '" class="button ' . $color . ' ' . $size . '">' . do_shortcode($content) . '</a>';
 	}
-		
+
 	add_shortcode('button', 'button_shortcode');
 
 	// Usage: [button color="blue, green, orange, yellow, red, teal, purple, pink, aqua, silver, white, black" link="http://...", size="small, medium, big"]
@@ -824,11 +824,11 @@ add_action( 'manage_posts_custom_column',  'portfolioposttype_columns_display', 
 
 		return '<div class="box ' . $type . '">' . do_shortcode($content) . '</div>';
 	}
-		
+
 	add_shortcode('box', 'box_shortcode');
 	// Usage: [box type="normal, info, tick, note, alert"][/box]
 
-	
+
 	/* COLUMNS */
 	function shortcodes_one_third( $atts, $content = null ) {
 		return '<div class="one_third">' . do_shortcode($content) . '</div>';
@@ -1004,7 +1004,7 @@ add_action( 'manage_posts_custom_column',  'portfolioposttype_columns_display', 
 		$result .= '</div>'; // close .tab_container
 		$result .= '</div>'; // close #tabs
 
-		return $result;	
+		return $result;
 	}
 
 	add_shortcode('tabs', 'tabs_shortcode');
@@ -1018,5 +1018,15 @@ add_action( 'manage_posts_custom_column',  'portfolioposttype_columns_display', 
 
 	add_shortcode('tab', 'tab_shortcode');
 
+	/**
+	 * Custom setup for GCD
+	 */
+	function gcd_basic_init() {
+		// Pages can have excerpts
+		add_post_type_support( 'page', 'excerpt' );
 
+		// Image size for hub pages
+		add_image_size( 'hub_header', 940, 310, true );
+	}
+	add_action( 'init', 'gcd_basic_init' );
 

@@ -83,7 +83,7 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/ie9.css" />
 <![endif]-->
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/jamesdoc.css" />
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/gcd_override.css" />
 
 </head>
 
@@ -96,7 +96,7 @@
 
 				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
 				<<?php echo $heading_tag; ?> id="site-title">
-				
+
 				<span>
 					<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 					<?php if ( $logo = get_option('of_logo') ) { ?>
@@ -115,12 +115,12 @@
 					<?php get_search_form(); ?>
 				</div>
 
-				<nav id="main_nav"> 
+				<nav id="main_nav">
 
 					<?php wp_nav_menu(array('menu' => 'Main Nav Menu')); ?>
 
 				</nav>
-			
+
 			</header>
 		</div>
 	</section>
@@ -128,5 +128,5 @@
 
 	<div id="main-wrapper">
 	<div id="main">
-		
+
 	<div class="main-top"></div>
