@@ -1021,12 +1021,44 @@ add_action( 'manage_posts_custom_column',  'portfolioposttype_columns_display', 
 	/**
 	 * Custom setup for GCD
 	 */
+
 	function gcd_basic_init() {
 		// Pages can have excerpts
 		add_post_type_support( 'page', 'excerpt' );
 
-		// Image size for hub pages
+		// Image sizes for hub pages
 		add_image_size( 'hub_header', 940, 310, true );
+		add_image_size( 'hub_thumbnail', 270, 180, true );
 	}
 	add_action( 'init', 'gcd_basic_init' );
+
+	// Get subpages for a given page
+	// If page_id left blank will use the $page->ID within the loop
+	function gcd_get_subpages($post_id = null, $excude = array()) {
+
+	    if ( !isset($post_id) ) {
+	        // Should be accessed via the loop so functions like `the_id()` will work
+	        $post_id = get_the_id();
+	    }
+
+		$args = array(
+			'numberposts'	 => -1,
+	        'post_type'      => 'page',
+	        'post_parent'    => $post_id,
+	        'order'          => 'ASC',
+	        'orderby'        => 'menu_order',
+	     );
+
+	    return get_posts($args);
+	}
+
+	function gcd_parent_link($parent_id = 0) {
+
+		if ($parent_id == 0) {
+			echo '<a href="' . get_site_url() . '" class="parent-link btn btn--point-left">Return to home</a>';
+		} else {
+			echo '<a href="' . get_the_permalink($parent_id) . '" class="parent-link btn btn--point-left">Return to ' . get_the_title($parent_id) . '</a>';
+		}
+	}
+
 
