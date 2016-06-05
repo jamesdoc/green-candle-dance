@@ -39,7 +39,7 @@ get_header(); ?>
       </div>
     <?php endif; ?>
 
-    <? if (count($children) > 0): ?>
+    <?php if (count($children) > 0): ?>
     <div class="hub__body">
 
       <?php foreach ($children as $child): ?>
@@ -63,7 +63,7 @@ get_header(); ?>
         </a>
       <?php endforeach; ?>
     </div>
-    <? endif; ?>
+    <?php endif; ?>
 
   </div>
 </div>
