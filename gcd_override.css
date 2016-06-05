@@ -276,7 +276,7 @@ a.vgimage {
 }
 
 .hub__header__overlay{
-	background-image: linear-gradient(270deg, rgba(255,159,0,0.00) 27%, rgba(255,102,0,0.77) 70%);
+	background-image: linear-gradient(270deg, rgba(204,206,0,0.00) 27%, rgba(204,206,0,0.77) 70%);
 	bottom: 0;
 	position: absolute;
 	top: 0;
@@ -288,12 +288,7 @@ a.vgimage {
 }
 
 .hub__header__nav .parent-link {
-	background-color: #fd6800;
 	transition: background-color 0.2s;
-}
-
-.hub__header__nav .parent-link:hover {
-	background-color: #F99F63;
 }
 
 .hub__header__text {
@@ -343,7 +338,7 @@ a.vgimage {
 .hub__promobox__image {
 	width: 270px;
 	height: 180px;
-	border-bottom: 8px solid #fd6800;
+	border-bottom: 8px solid #ccce00;
 	transition: opacity 0.2s;
 }
 
@@ -361,12 +356,7 @@ a.vgimage {
 }
 
 .hub__promobox__read-more {
-	background-color: #fd6800;
 	transition: background-color 0.2s;
-}
-
-.hub__promobox:hover .hub__promobox__read-more {
-	background-color: #F99F63;
 }
 
 .hub__promobox:hover .hub__promobox__image {
@@ -392,4 +382,56 @@ a.vgimage {
 
 .hub__intro p:last-child {
 	margin: 0;
+}
+
+/* Hub themes colors */
+
+/* PARTICIPATION */
+.hub--theme--participation .hub__header__overlay{
+	background-image: linear-gradient(270deg, rgba(255,159,0,0.00) 27%, rgba(255,102,0,0.77) 70%);
+}
+
+.hub--theme--participation .hub__promobox__read-more {
+	background-color: #fd6800;
+}
+
+.hub--theme--participation .hub__promobox:hover .hub__promobox__read-more {
+	background-color: #F99F63;
+}
+
+.hub--theme--participation .hub__header__nav .parent-link {
+	background-color: #fd6800;
+}
+
+.hub--theme--participation .hub__header__nav .parent-link:hover {
+	background-color: #F99F63;
+}
+
+.hub--theme--participation .hub__promobox__image {
+	border-bottom: 8px solid #fb6a00;
+}
+
+/* TRAINING */
+.hub--theme--training .hub__header__overlay{
+	background-image: linear-gradient(270deg, rgba(254,205,0,0.00) 27%, rgba(254,205,0,0.77) 70%);
+}
+
+.hub--theme--training .hub__promobox__read-more {
+	background-color: #fece00;
+}
+
+.hub--theme--training .hub__promobox:hover .hub__promobox__read-more {
+	background-color: #ffde51;
+}
+
+.hub--theme--training .hub__header__nav .parent-link {
+	background-color: #fece00;
+}
+
+.hub--theme--training .hub__header__nav .parent-link:hover {
+	background-color: #ffde51;
+}
+
+.hub--theme--training .hub__promobox__image {
+	border-bottom: 8px solid #fece00;
 }

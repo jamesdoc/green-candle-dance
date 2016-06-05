@@ -6,6 +6,7 @@ Template Name: Hub
 $large_image_url = '';
 if ( has_post_thumbnail() ) {
   $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'hub_header' );
+  $large_image_url = $large_image_url[0];
 }
 $children = gcd_get_subpages();
 
@@ -13,9 +14,9 @@ get_header(); ?>
 
 <div id="container">
 
-  <div class="hub" role="main">
+  <div class="hub hub--theme--<?php echo gcd__parent__slug($post->ID) ?>" role="main">
 
-    <div class="hub__header" style="background-image: url(<?php echo $large_image_url[0]; ?>)">
+    <div class="hub__header" style="background-image: url(<?php echo $large_image_url; ?>)">
       <div class="hub__header__overlay">
         <div class="hub__header__nav">
           <?php gcd_parent_link($post->post_parent); ?>
@@ -38,6 +39,7 @@ get_header(); ?>
       </div>
     <?php endif; ?>
 
+    <? if (count($children) > 0): ?>
     <div class="hub__body">
 
       <?php foreach ($children as $child): ?>
@@ -61,6 +63,7 @@ get_header(); ?>
         </a>
       <?php endforeach; ?>
     </div>
+    <? endif; ?>
 
   </div>
 </div>

@@ -1061,4 +1061,12 @@ add_action( 'manage_posts_custom_column',  'portfolioposttype_columns_display', 
 		}
 	}
 
+	function gcd__parent__slug($id) {
+		$parents = get_post_ancestors( $id );
+		$id = ($parents) ? $parents[count($parents)-1]: $id;
+		/* Get the parent and set the $class with the page slug (post_name) */
+		$parent = get_post( $id );
+		return $parent->post_name;
+	}
+
 
