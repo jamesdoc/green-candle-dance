@@ -61,7 +61,7 @@
 
 					<h3 class="widget-title widget-title--orange">Social Media</h3>
 					<ul class="social_buttons">
-						<li class="facebook"><a href="https://www.facebook.com/greencandle.dance" target="_blank"><img src="<?php echo $template_dir; ?>/images/facebook.jpg" alt="Facebook" /></a></li>
+						<li class="facebook"><a href="https://www.facebook.com/GreenCandleDanceCompany/" target="_blank"><img src="<?php echo $template_dir; ?>/images/facebook.jpg" alt="Facebook" /></a></li>
 						<li class="twitter"><a href="https://twitter.com/GCDanceCompany" target="_blank"><img src="<?php echo $template_dir; ?>/images/twitter.jpg" alt="Twitter" /></a></li>
 						<li class="youtube"><a href="https://www.youtube.com/user/greencandledance" target="_blank"><img src="<?php echo $template_dir; ?>/images/youtube.jpg" alt="YouTube" /></a></li>
 					</ul>
