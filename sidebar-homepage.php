@@ -18,7 +18,9 @@
 
 			<div id="homepage-widget-area" role="complementary">
 
-
+			<?php /*
+				NB: This are found here: /admin/widgets/widget-custom-content.php
+			*/ ?>
 			<?php if ( is_active_sidebar( 'first-homepage-widget-area' ) ) : ?>
 				<div id="homepage-first" class="widget-area">
 					<ul class="xoxo">
