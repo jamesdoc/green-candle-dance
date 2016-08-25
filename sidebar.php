@@ -6,10 +6,6 @@
 
 	<div id="primary" class="widget-area" role="complementary">
 		<ul class="xoxo">
-
-			<li class="widget-container">
-				<script type="text/javascript" src="https://www.crowdfunder.co.uk/sagacity-festival-of-older-people-dancing/widget.js/"></script>
-			</li>
 		<?php
 		/* When we call the dynamic_sidebar() function, it'll spit out
 	 	 * the widgets for that widget area. If it instead returns false,
